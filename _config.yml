@@ -55,3 +55,7 @@ social:
 markdown: kramdown
 #sass:
 #  style: compressed
+gem 'github-pages', group: :jekyll_plugins
+
+gems:
+  - jekyll-sitemap
