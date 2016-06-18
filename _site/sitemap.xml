@@ -1,23 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
-<loc>http://www.brad-leslie.com/blog/posts/eventlogic-usa</loc>
-<lastmod>2016-06-14T15:02:44-04:00</lastmod>
-</url>
-<url>
-<loc>http://www.brad-leslie.com/blog/posts/welcome</loc>
-<lastmod>2016-05-14T15:02:44-04:00</lastmod>
+<loc>http://www.brad-leslie.com/</loc>
+<lastmod>2016-06-18T22:06:13+00:00</lastmod>
 </url>
 <url>
 <loc>http://www.brad-leslie.com/blog/posts/</loc>
+<lastmod>2016-06-18T22:06:13+00:00</lastmod>
 </url>
 <url>
 <loc>http://www.brad-leslie.com/elements</loc>
-</url>
-<url>
-<loc>http://www.brad-leslie.com/</loc>
+<lastmod>2016-06-18T22:06:13+00:00</lastmod>
 </url>
 <url>
 <loc>http://www.brad-leslie.com/magento</loc>
+<lastmod>2016-06-18T22:06:13+00:00</lastmod>
+</url>
+<url>
+<loc>
+http://www.brad-leslie.com/blog/posts/eventlogic-usa
+</loc>
+<lastmod>2016-06-18T22:06:13+00:00</lastmod>
+</url>
+<url>
+<loc>http://www.brad-leslie.com/blog/posts/welcome</loc>
+<lastmod>2016-06-18T22:06:13+00:00</lastmod>
 </url>
 </urlset>
