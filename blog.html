@@ -1,0 +1,18 @@
+---
+layout: page
+title: Blog
+tagline: Check out my latest blog posts
+permalink: /blog/posts/
+---
+<section>
+    <ul class="alt">
+        {% for post in site.posts %}
+            {% if post.title %}
+                <li>
+                    <h4><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
+                    <p>{{ post.date | date: "%b %-d, %Y" }} - {{ post.tagline }}</p>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</section>

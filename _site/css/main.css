@@ -1979,7 +1979,8 @@ button,
     .wrapper.style1 .icon.major {
       border-color: rgba(0, 0, 0, 0.125); }
     .wrapper.style1 ul.alt li {
-      border-color: rgba(0, 0, 0, 0.125); }
+      border-color: rgba(0, 0, 0, 0.125);
+      padding-top: 20px; }
     .wrapper.style1 table tbody tr {
       border-color: rgba(0, 0, 0, 0.125); }
       .wrapper.style1 table tbody tr:nth-child(2n + 1) {
@@ -2068,7 +2069,8 @@ button,
     .wrapper.style3 .icon.major {
       border-color: rgba(0, 0, 0, 0.125); }
     .wrapper.style3 ul.alt li {
-      border-color: rgba(0, 0, 0, 0.125); }
+      border-color: rgba(0, 0, 0, 0.125);
+      padding-top: 20px; }
     .wrapper.style3 table tbody tr {
       border-color: rgba(0, 0, 0, 0.125); }
       .wrapper.style3 table tbody tr:nth-child(2n + 1) {
@@ -2157,7 +2159,8 @@ button,
     .wrapper.style5 .icon.major {
       border-color: #dfdfdf; }
     .wrapper.style5 ul.alt li {
-      border-color: #dfdfdf; }
+      border-color: #dfdfdf;
+      padding-top: 20px; }
     .wrapper.style5 table tbody tr {
       border-color: #dfdfdf; }
       .wrapper.style5 table tbody tr:nth-child(2n + 1) {
@@ -2684,3 +2687,6 @@ body.is-mobile.landing #footer {
 
 .opaque {
   background-color: rgba(29, 36, 42, 0.9); }
+
+ul > li > p {
+  margin: 0; }

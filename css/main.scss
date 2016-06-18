@@ -1148,6 +1148,7 @@ $baseurl: '{{ site.baseurl }}/images';
 				&.alt {
 					li {
 						border-color: _palette($p, border);
+						padding-top: 20px;
 					}
 				}
 			}
@@ -1836,3 +1837,10 @@ $baseurl: '{{ site.baseurl }}/images';
 	.opaque {
 	background-color: rgba(29, 36, 42, 0.9);
 	}
+
+// custom styles
+
+ul > li > p {
+	margin: 0;
+}
+

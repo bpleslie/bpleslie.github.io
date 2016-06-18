@@ -6,13 +6,31 @@
 </description>
     <link>http://www.brad-leslie.com/</link>
     <atom:link href="http://www.brad-leslie.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 15 Jun 2016 01:11:29 -0400</pubDate>
-    <lastBuildDate>Wed, 15 Jun 2016 01:11:29 -0400</lastBuildDate>
+    <pubDate>Sat, 18 Jun 2016 17:55:14 -0400</pubDate>
+    <lastBuildDate>Sat, 18 Jun 2016 17:55:14 -0400</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
+        <title>EventLogic USA</title>
+        <description>&lt;p&gt;EventLogic USA is a relatively young marketing agency focused on experiential marketing. Specifically, setting up activations
+at events targeted for their clients.&lt;/p&gt;
+
+&lt;p&gt;I had the pleasure of creating the first iterations of &lt;a href=&quot;http://eventlogicusa.com&quot; target=&quot;_blank&quot;&gt;eventlogicusa.com&lt;/a&gt;,
+which began with a very simple HTML5 / Bootstrap site from &lt;a href=&quot;http://www.initializr.com/&quot; target=&quot;_blank&quot;&gt;Initializr&lt;/a&gt;.
+The site has since evolved into a static HTML5 / Jekyll site hosted on GitHub via Github Pages.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 14 Jun 2016 15:02:44 -0400</pubDate>
+        <link>http://www.brad-leslie.com/blog/posts/eventlogic-usa</link>
+        <guid isPermaLink="true">http://www.brad-leslie.com/blog/posts/eventlogic-usa</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
+    
+      <item>
         <title>Welcome to my new site</title>
-        <description>&lt;p&gt;The idea for this site originated when I discovered the flexibility of &lt;a href=&quot;https://pages.github.com/&quot; title=&quot;GitHub Pages&quot; target=&quot;_blank&quot;&gt;GitHub Pages&lt;/a&gt; while researching some deep learning topics . After playing around
+        <description>&lt;p&gt;The idea for this site originated when I discovered the flexibility of &lt;a href=&quot;https://pages.github.com/&quot; title=&quot;GitHub Pages&quot; target=&quot;_blank&quot;&gt;GitHub Pages&lt;/a&gt; while researching some deep learning topics. After playing around
 with their page generation tool for a bit, I decided to check out their other option for building out Pages: a ruby-based
 blog (with no database), called &lt;a href=&quot;https://jekyllrb.com/&quot; title=&quot;Jekyll&quot; target=&quot;_blank&quot;&gt;Jekyll&lt;/a&gt;&lt;/p&gt;
 
@@ -22,8 +40,8 @@ like Bootstrap’s boilerplate and something more powerful like Wordpress. This 
 and Jekyll, but I’m looking forward to continuing the journey.&lt;/p&gt;
 </description>
         <pubDate>Sat, 14 May 2016 15:02:44 -0400</pubDate>
-        <link>http://www.brad-leslie.com/posts/welcome</link>
-        <guid isPermaLink="true">http://www.brad-leslie.com/posts/welcome</guid>
+        <link>http://www.brad-leslie.com/blog/posts/welcome</link>
+        <guid isPermaLink="true">http://www.brad-leslie.com/blog/posts/welcome</guid>
         
         
         <category>general</category>
