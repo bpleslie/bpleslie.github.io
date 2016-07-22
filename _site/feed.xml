@@ -6,9 +6,127 @@
 </description>
     <link>http://www.brad-leslie.com/</link>
     <atom:link href="http://www.brad-leslie.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 18 Jun 2016 17:55:14 -0400</pubDate>
-    <lastBuildDate>Sat, 18 Jun 2016 17:55:14 -0400</lastBuildDate>
+    <pubDate>Fri, 22 Jul 2016 17:38:38 -0400</pubDate>
+    <lastBuildDate>Fri, 22 Jul 2016 17:38:38 -0400</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
+    
+      <item>
+        <title>Magento 2 Theme Development</title>
+        <description>&lt;p&gt;I’ve been working on my first full Magento 2 build (custom functionality &amp;amp; theme development) and have uncovered some
+really cool features. Although these features make our lives easier as developers, you have to know about them in order
+to benefit. This will be an ever-evolving post about the things I’ve found.&lt;/p&gt;
+
+&lt;h2&gt;view.xml&lt;/h2&gt;
+
+&lt;p&gt;Magento’s (improved) documentation definitely makes getting started with building a custom theme in M2 much more
+streamlined than M1. One of my favorite features of M2 theme dev is briefly mentioned on the first page of the
+&lt;a href=&quot;http://devdocs.magento.com/guides/v2.1/frontend-dev-guide/themes/theme-create.html&quot; target=&quot;_blank&quot;&gt;theme documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Your theme’s etc/view.xml file can be used to set the image sizes throughout the site, as mentioned in the documentation linked above,
+but it’s much more powerful than that. I’ve found that you can actually manipulate a lot of the front end via this file alone.
+For example, you can set custom breakpoints, manually exclude JavaScript files and even customize the product page media gallery
+as well as the image magnifier.&lt;/p&gt;
+
+&lt;p&gt;If you look at Magento_Catalog’s etc/view.xml file and search for “gallery”, you’ll find that you have a lot of control
+over the look and feel of the gallery – simply by updating the values in your own theme’s view.xml:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;!-- Gallery and magnifier theme settings. Start --&amp;gt;
+&amp;lt;var name=&quot;gallery&quot;&amp;gt;
+    &amp;lt;var name=&quot;nav&quot;&amp;gt;thumbs&amp;lt;/var&amp;gt; &amp;lt;!-- Gallery navigation style (false/thumbs/dots) --&amp;gt;
+    &amp;lt;var name=&quot;loop&quot;&amp;gt;true&amp;lt;/var&amp;gt; &amp;lt;!-- Gallery navigation loop (true/false) --&amp;gt;
+    &amp;lt;var name=&quot;keyboard&quot;&amp;gt;true&amp;lt;/var&amp;gt; &amp;lt;!-- Turn on/off keyboard arrows navigation (true/false) --&amp;gt;
+    &amp;lt;var name=&quot;arrows&quot;&amp;gt;true&amp;lt;/var&amp;gt; &amp;lt;!-- Turn on/off arrows on the sides preview (true/false) --&amp;gt;
+    &amp;lt;var name=&quot;caption&quot;&amp;gt;false&amp;lt;/var&amp;gt; &amp;lt;!-- Display alt text as image title (true/false) --&amp;gt;
+    &amp;lt;var name=&quot;allowfullscreen&quot;&amp;gt;true&amp;lt;/var&amp;gt; &amp;lt;!-- Turn on/off fullscreen (true/false) --&amp;gt;
+    &amp;lt;var name=&quot;navdir&quot;&amp;gt;vertical&amp;lt;/var&amp;gt; &amp;lt;!-- Sliding direction of thumbnails (horizontal/vertical) --&amp;gt;
+    &amp;lt;var name=&quot;navarrows&quot;&amp;gt;true&amp;lt;/var&amp;gt; &amp;lt;!-- Turn on/off on the thumbs navigation sides arrows(true/false) --&amp;gt;
+    &amp;lt;var name=&quot;navtype&quot;&amp;gt;slides&amp;lt;/var&amp;gt; &amp;lt;!-- Sliding type of thumbnails (slides/thumbs) --&amp;gt;
+    &amp;lt;var name=&quot;transition&quot;&amp;gt;
+        &amp;lt;var name=&quot;effect&quot;&amp;gt;slide&amp;lt;/var&amp;gt; &amp;lt;!-- Sets transition effect for slides changing (slide/crossfade/dissolve) --&amp;gt;
+        &amp;lt;var name=&quot;duration&quot;&amp;gt;500&amp;lt;/var&amp;gt; &amp;lt;!-- Sets transition duration in ms --&amp;gt;
+    &amp;lt;/var&amp;gt;
+    &amp;lt;var name=&quot;fullscreen&quot;&amp;gt;
+        &amp;lt;var name=&quot;nav&quot;&amp;gt;thumbs&amp;lt;/var&amp;gt; &amp;lt;!-- Fullscreen navigation style (false/thumbs/dots) --&amp;gt;
+        &amp;lt;var name=&quot;loop&quot;&amp;gt;true&amp;lt;/var&amp;gt; &amp;lt;!-- Fullscreen navigation loop (true/false/null) --&amp;gt;
+        &amp;lt;var name=&quot;arrows&quot;&amp;gt;true&amp;lt;/var&amp;gt; &amp;lt;!-- Turn on/off arrows on the sides preview in fullscreen (true/false/null) --&amp;gt;
+        &amp;lt;var name=&quot;caption&quot;&amp;gt;false&amp;lt;/var&amp;gt; &amp;lt;!-- Display alt text as image title in fullscreen(true/false) --&amp;gt;
+        &amp;lt;var name=&quot;navdir&quot;&amp;gt;horizontal&amp;lt;/var&amp;gt; &amp;lt;!--Sliding direction of thumbnails in fullscreen(horizontal/vertical)  --&amp;gt;
+        &amp;lt;var name=&quot;navarrows&quot;&amp;gt;false&amp;lt;/var&amp;gt; &amp;lt;!-- Turn on/off on the thumbs navigation sides arrows(true/false) --&amp;gt;
+        &amp;lt;var name=&quot;navtype&quot;&amp;gt;slides&amp;lt;/var&amp;gt; &amp;lt;!-- Sliding type of thumbnails (slides/thumbs) --&amp;gt;
+        &amp;lt;var name=&quot;transition&quot;&amp;gt;
+            &amp;lt;var name=&quot;effect&quot;&amp;gt;slide&amp;lt;/var&amp;gt; &amp;lt;!-- Sets transition effect for slides changing (slide/crossfade/dissolve) --&amp;gt;
+            &amp;lt;var name=&quot;duration&quot;&amp;gt;500&amp;lt;/var&amp;gt; &amp;lt;!-- Sets transition duration in ms --&amp;gt;
+        &amp;lt;/var&amp;gt;
+    &amp;lt;/var&amp;gt;
+&amp;lt;/var&amp;gt;
+
+&amp;lt;var name=&quot;magnifier&quot;&amp;gt;
+    &amp;lt;var name=&quot;fullscreenzoom&quot;&amp;gt;20&amp;lt;/var&amp;gt;  &amp;lt;!-- Zoom for fullscreen (integer)--&amp;gt;
+    &amp;lt;var name=&quot;top&quot;&amp;gt;&amp;lt;/var&amp;gt; &amp;lt;!-- Top position of magnifier --&amp;gt;
+    &amp;lt;var name=&quot;left&quot;&amp;gt;&amp;lt;/var&amp;gt; &amp;lt;!-- Left position of magnifier --&amp;gt;
+    &amp;lt;var name=&quot;width&quot;&amp;gt;&amp;lt;/var&amp;gt; &amp;lt;!-- Width of magnifier block --&amp;gt;
+    &amp;lt;var name=&quot;height&quot;&amp;gt;&amp;lt;/var&amp;gt; &amp;lt;!-- Height of magnifier block --&amp;gt;
+    &amp;lt;var name=&quot;eventType&quot;&amp;gt;hover&amp;lt;/var&amp;gt; &amp;lt;!-- Action that atcivates zoom (hover/click) --&amp;gt;
+    &amp;lt;var name=&quot;enabled&quot;&amp;gt;false&amp;lt;/var&amp;gt; &amp;lt;!-- Turn on/off magnifier (true/false) --&amp;gt;
+&amp;lt;/var&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I’m sure that there are a number of other benefits from manipulating view.xml values from other components, but I have
+used it within my theme to customize the Catalog values for the most part.&lt;/p&gt;
+
+&lt;h2&gt;display: flex;&lt;/h2&gt;
+
+&lt;p&gt;The first thing I do when building a new theme is construct the header. Since it’s used on every page, it offers a nice
+jump-start to what can sometimes be a daunting challenge. When I started my first M2 theme and began moving header elements around,
+I hit my first huge wall of M2 theme dev.&lt;/p&gt;
+
+&lt;p&gt;My goal was to move the ‘top links’ (account, welcome message, etc) into the main nav. My initial thought was to use the new
+“move” XML syntax so that the top links and nav elements were displayed one-after-the-other, then float them both to give
+the appearance of a single, unified navigation: category and other catalog-related links left aligned and top links right aligned.
+Despite moving the top links successfully, all efforts to float either the top links or the nav failed.&lt;/p&gt;
+
+&lt;p&gt;After banging my head against the wall for more hours than I’d like to admit, I discovered something new:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;display: flex;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;For the uninitiated, “flex” refers to &lt;a href=&quot;https://css-tricks.com/snippets/css/a-guide-to-flexbox/&quot; target=&quot;_blank&quot;&gt;
+Flexbox&lt;/a&gt;. That guide by CSS-Tricks is a great way to bring yourself up to speed with Flexbox, what it can do and how
+you can manipulate your M2 theme with it.&lt;/p&gt;
+
+&lt;p&gt;In my own words, it feels like an easier Bootstrap. If you wanted to build a
+Magento theme using Bootstrap, you’d have to override dozens of template files in order to add custom classes to designate
+the width of each element for each screen size (using their column system). Flexbox allows us to almost do the opposite,
+meaning that you don’t have to override a single template file – it’s all done via CSS / less. The guide above does a
+great job of explaining Flexbox in detail, so I’ll suffice it to say that your life (and your theme) will be easier if you
+leverage Flexbox rather than trying to build a custom Bootstrap theme.&lt;/p&gt;
+
+&lt;p&gt;Getting back to the original point, child elements of a Flexbox cannot be floated. In order to achieve the desired result,
+I was able to move the top links into the nav element itself. While I have not utilized Flexbox to its full potential in
+my first theme, I will be looking for ways to do so in the future.&lt;/p&gt;
+
+&lt;h2&gt;JavaScript Initialization&lt;/h2&gt;
+
+&lt;p&gt;More kudos to Magento for &lt;a href=&quot;http://devdocs.magento.com/guides/v2.1/javascript-dev-guide/javascript/js_init.html&quot; target=&quot;_blank&quot;&gt;
+their documentation&lt;/a&gt;, which does a good job of explaining JS initialization and how you can utilize it in your theme.
+It’s essentially a means to add custom JS without adding a new JS file. In addition to keeping performance at the forefront,
+development time is decreased once you understand what you’re able to accomplish.&lt;/p&gt;
+
+&lt;p&gt;Widgets such as accordion, tabs, navigation, etc. are able to be initialized with relative ease using the techniques outlined
+in the documentation above. A good way to see how M2 utilizes JS initialization is to search your file system for “data-mage-init”.
+In addition to adding widgets, JS initialization is the preferred way to add custom JS to a single element. I’m looking forward
+to diving into this aspect as I continue to customize my first theme.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 21 Jul 2016 15:02:44 -0400</pubDate>
+        <link>http://www.brad-leslie.com/blog/posts/magento-2-theme-development</link>
+        <guid isPermaLink="true">http://www.brad-leslie.com/blog/posts/magento-2-theme-development</guid>
+        
+        
+        <category>general</category>
+        
+      </item>
     
       <item>
         <title>EventLogic USA</title>

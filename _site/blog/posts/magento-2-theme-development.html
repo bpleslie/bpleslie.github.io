@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!--
+  Original Design: Spectral by HTML5 UP
+    html5up.net | @n33co
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Jekyll build mod
+-->
+<html>
+
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magento 2 Theme Development</title>
+  <meta name="description" content="I’ve been working on my first full Magento 2 build (custom functionality &amp; theme development) and have uncovered somereally cool features. Although these...">
+  <!--[if lte IE 8]><script src="/js/ie/html5shiv.js"></script><![endif]-->
+  <link rel="canonical" href="http://www.brad-leslie.com/blog/posts/magento-2-theme-development">
+  <link rel="stylesheet" href="/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="Brad Leslie | Magento Certified Developer" href="http://www.brad-leslie.com/feed.xml">
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-77751097-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</head>
+
+
+  <body>
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+      <!-- Header -->
+<header id="header">
+  <h1><a href="/">BRAD LESLIE</a></h1>
+  <nav id="nav">
+    <ul>
+      <li class="special">
+        <a href="#menu" class="menuToggle"><span>Menu</span></a>
+        <div id="menu">
+          <ul>
+            <li><a href="/">Home</a></li>
+            
+              
+                <li><a href="/blog/posts/">Blog</a></li>
+              
+            
+              
+                <li><a href="/elements">Elements</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                <li><a href="/magento">Magento</a></li>
+              
+            
+              
+            
+            <li><a href="/feed.xml"
+                   class="icon fa-feed"> RSS Feed</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting" id="main">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Magento 2 Theme Development</h1>
+    <p class="post-meta"><time datetime="2016-07-21T15:02:44-04:00" itemprop="datePublished">Jul 21, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Brad Leslie</span></span></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <section class="wrapper style5">
+      <div class="inner">
+        <p>I’ve been working on my first full Magento 2 build (custom functionality &amp; theme development) and have uncovered some
+really cool features. Although these features make our lives easier as developers, you have to know about them in order
+to benefit. This will be an ever-evolving post about the things I’ve found.</p>
+
+<h2>view.xml</h2>
+
+<p>Magento’s (improved) documentation definitely makes getting started with building a custom theme in M2 much more
+streamlined than M1. One of my favorite features of M2 theme dev is briefly mentioned on the first page of the
+<a href="http://devdocs.magento.com/guides/v2.1/frontend-dev-guide/themes/theme-create.html" target="_blank">theme documentation</a>.</p>
+
+<p>Your theme’s etc/view.xml file can be used to set the image sizes throughout the site, as mentioned in the documentation linked above,
+but it’s much more powerful than that. I’ve found that you can actually manipulate a lot of the front end via this file alone.
+For example, you can set custom breakpoints, manually exclude JavaScript files and even customize the product page media gallery
+as well as the image magnifier.</p>
+
+<p>If you look at Magento_Catalog’s etc/view.xml file and search for “gallery”, you’ll find that you have a lot of control
+over the look and feel of the gallery – simply by updating the values in your own theme’s view.xml:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;!-- Gallery and magnifier theme settings. Start --&gt;
+&lt;var name="gallery"&gt;
+    &lt;var name="nav"&gt;thumbs&lt;/var&gt; &lt;!-- Gallery navigation style (false/thumbs/dots) --&gt;
+    &lt;var name="loop"&gt;true&lt;/var&gt; &lt;!-- Gallery navigation loop (true/false) --&gt;
+    &lt;var name="keyboard"&gt;true&lt;/var&gt; &lt;!-- Turn on/off keyboard arrows navigation (true/false) --&gt;
+    &lt;var name="arrows"&gt;true&lt;/var&gt; &lt;!-- Turn on/off arrows on the sides preview (true/false) --&gt;
+    &lt;var name="caption"&gt;false&lt;/var&gt; &lt;!-- Display alt text as image title (true/false) --&gt;
+    &lt;var name="allowfullscreen"&gt;true&lt;/var&gt; &lt;!-- Turn on/off fullscreen (true/false) --&gt;
+    &lt;var name="navdir"&gt;vertical&lt;/var&gt; &lt;!-- Sliding direction of thumbnails (horizontal/vertical) --&gt;
+    &lt;var name="navarrows"&gt;true&lt;/var&gt; &lt;!-- Turn on/off on the thumbs navigation sides arrows(true/false) --&gt;
+    &lt;var name="navtype"&gt;slides&lt;/var&gt; &lt;!-- Sliding type of thumbnails (slides/thumbs) --&gt;
+    &lt;var name="transition"&gt;
+        &lt;var name="effect"&gt;slide&lt;/var&gt; &lt;!-- Sets transition effect for slides changing (slide/crossfade/dissolve) --&gt;
+        &lt;var name="duration"&gt;500&lt;/var&gt; &lt;!-- Sets transition duration in ms --&gt;
+    &lt;/var&gt;
+    &lt;var name="fullscreen"&gt;
+        &lt;var name="nav"&gt;thumbs&lt;/var&gt; &lt;!-- Fullscreen navigation style (false/thumbs/dots) --&gt;
+        &lt;var name="loop"&gt;true&lt;/var&gt; &lt;!-- Fullscreen navigation loop (true/false/null) --&gt;
+        &lt;var name="arrows"&gt;true&lt;/var&gt; &lt;!-- Turn on/off arrows on the sides preview in fullscreen (true/false/null) --&gt;
+        &lt;var name="caption"&gt;false&lt;/var&gt; &lt;!-- Display alt text as image title in fullscreen(true/false) --&gt;
+        &lt;var name="navdir"&gt;horizontal&lt;/var&gt; &lt;!--Sliding direction of thumbnails in fullscreen(horizontal/vertical)  --&gt;
+        &lt;var name="navarrows"&gt;false&lt;/var&gt; &lt;!-- Turn on/off on the thumbs navigation sides arrows(true/false) --&gt;
+        &lt;var name="navtype"&gt;slides&lt;/var&gt; &lt;!-- Sliding type of thumbnails (slides/thumbs) --&gt;
+        &lt;var name="transition"&gt;
+            &lt;var name="effect"&gt;slide&lt;/var&gt; &lt;!-- Sets transition effect for slides changing (slide/crossfade/dissolve) --&gt;
+            &lt;var name="duration"&gt;500&lt;/var&gt; &lt;!-- Sets transition duration in ms --&gt;
+        &lt;/var&gt;
+    &lt;/var&gt;
+&lt;/var&gt;
+
+&lt;var name="magnifier"&gt;
+    &lt;var name="fullscreenzoom"&gt;20&lt;/var&gt;  &lt;!-- Zoom for fullscreen (integer)--&gt;
+    &lt;var name="top"&gt;&lt;/var&gt; &lt;!-- Top position of magnifier --&gt;
+    &lt;var name="left"&gt;&lt;/var&gt; &lt;!-- Left position of magnifier --&gt;
+    &lt;var name="width"&gt;&lt;/var&gt; &lt;!-- Width of magnifier block --&gt;
+    &lt;var name="height"&gt;&lt;/var&gt; &lt;!-- Height of magnifier block --&gt;
+    &lt;var name="eventType"&gt;hover&lt;/var&gt; &lt;!-- Action that atcivates zoom (hover/click) --&gt;
+    &lt;var name="enabled"&gt;false&lt;/var&gt; &lt;!-- Turn on/off magnifier (true/false) --&gt;
+&lt;/var&gt;
+</code></pre>
+</div>
+
+<p>I’m sure that there are a number of other benefits from manipulating view.xml values from other components, but I have
+used it within my theme to customize the Catalog values for the most part.</p>
+
+<h2>display: flex;</h2>
+
+<p>The first thing I do when building a new theme is construct the header. Since it’s used on every page, it offers a nice
+jump-start to what can sometimes be a daunting challenge. When I started my first M2 theme and began moving header elements around,
+I hit my first huge wall of M2 theme dev.</p>
+
+<p>My goal was to move the ‘top links’ (account, welcome message, etc) into the main nav. My initial thought was to use the new
+“move” XML syntax so that the top links and nav elements were displayed one-after-the-other, then float them both to give
+the appearance of a single, unified navigation: category and other catalog-related links left aligned and top links right aligned.
+Despite moving the top links successfully, all efforts to float either the top links or the nav failed.</p>
+
+<p>After banging my head against the wall for more hours than I’d like to admit, I discovered something new:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>display: flex;
+</code></pre>
+</div>
+
+<p>For the uninitiated, “flex” refers to <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">
+Flexbox</a>. That guide by CSS-Tricks is a great way to bring yourself up to speed with Flexbox, what it can do and how
+you can manipulate your M2 theme with it.</p>
+
+<p>In my own words, it feels like an easier Bootstrap. If you wanted to build a
+Magento theme using Bootstrap, you’d have to override dozens of template files in order to add custom classes to designate
+the width of each element for each screen size (using their column system). Flexbox allows us to almost do the opposite,
+meaning that you don’t have to override a single template file – it’s all done via CSS / less. The guide above does a
+great job of explaining Flexbox in detail, so I’ll suffice it to say that your life (and your theme) will be easier if you
+leverage Flexbox rather than trying to build a custom Bootstrap theme.</p>
+
+<p>Getting back to the original point, child elements of a Flexbox cannot be floated. In order to achieve the desired result,
+I was able to move the top links into the nav element itself. While I have not utilized Flexbox to its full potential in
+my first theme, I will be looking for ways to do so in the future.</p>
+
+<h2>JavaScript Initialization</h2>
+
+<p>More kudos to Magento for <a href="http://devdocs.magento.com/guides/v2.1/javascript-dev-guide/javascript/js_init.html" target="_blank">
+their documentation</a>, which does a good job of explaining JS initialization and how you can utilize it in your theme.
+It’s essentially a means to add custom JS without adding a new JS file. In addition to keeping performance at the forefront,
+development time is decreased once you understand what you’re able to accomplish.</p>
+
+<p>Widgets such as accordion, tabs, navigation, etc. are able to be initialized with relative ease using the techniques outlined
+in the documentation above. A good way to see how M2 utilizes JS initialization is to search your file system for “data-mage-init”.
+In addition to adding widgets, JS initialization is the preferred way to add custom JS to a single element. I’m looking forward
+to diving into this aspect as I continue to customize my first theme.</p>
+
+      </div>
+    </section>
+  </div>
+
+</article>
+
+
+      <!-- Footer -->
+<footer id="footer">
+  <ul class="icons">
+    
+    
+    
+    
+    
+    <li><a target="_blank" href="https://github.com/bpleslie" class="icon fa-github"
+           ><span class="label">github</span></a></li>
+    
+    
+    
+    
+    
+    <li><a target="_blank" href="https://linkedin.com/in/bpleslie" class="icon fa-linkedin-square"
+           ><span class="label">linkedin-square</span></a></li>
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+  <ul class="copyright">
+    <li>&copy; 
+    
+      
+      
+    
+    2016
+    Brad Leslie</li>
+    <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+    <li>Built with: <a href="http://jekyllrb.com" target="_blank">Jekyll</a></li>
+  </ul>
+</footer>
+
+
+      <!-- Scripts -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollex.min.js"></script>
+<script src="/js/jquery.scrolly.min.js"></script>
+<script src="/js/skel.min.js"></script>
+<script src="/js/util.js"></script>
+<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
+<script src="/js/main.js"></script>
+
+
+    </div>
+
+  </body>
+
+</html>
